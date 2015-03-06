@@ -1,0 +1,231 @@
+---
+title: "DASI-003 Unit 1 Lab 1"
+author: "Ronald Stalder"
+date: '`r Sys.Date()`'
+output:
+  html_document:
+    highlight: tango
+    keep_md: no
+    theme: united
+---
+
+<style type="text/css">
+table {
+  width: 90%;
+  border: 1px solid black;
+}
+table tr:first-child,
+table tr td:first-child {
+  color: #000080;
+  background-color: #BCD2EE;
+  border-bottom: 1px solid black;
+}
+table tr td {
+  padding-left: 5px;
+  border-right: 1px solid black;
+}
+</style>
+
+##### Data Analysis and Statistical Inference 
+##### Unit 1 Lab 1: Introduction to Data
+
+**lab instructions [here](https://d396qusza40orc.cloudfront.net/statistics/Documents/Labs/lab1.html)
+
+```{r q1-1}
+library(data.table)
+source("http://www.openintro.org/stat/data/cdc.R")
+names(cdc)
+D <- as.data.table(cdc)
+```
+
+## Question 1
+
+```
+How many cases and how many variables are there in this data set? 
+
+A) 9 cases; 20,000 variables 
+B) 10 cases; 20,000 variables 
+C) 20,000 cases; 9 variables 
+D) 20,000 cases; 10 variables 
+```
+
+```{r q1}
+dim(D)
+```
+
+#### Answer Q1:  C) 20000 cases, 9 vars
+
+## Question 2
+
+```
+What type of variable is genhlth? 
+
+A) numerical, continuous 
+B) numerical, discrete 
+C) categorical (not ordinal) 
+D) categorical, ordinal 
+```
+
+```{r q2}
+str(D$genhlth)
+```
+
+#### Answer Q2:  C) categorical, ordinal
+
+## Question 3
+
+```
+What type of variable is weight? 
+
+A) numerical, continuous 
+B) numerical, discrete 
+C) categorical (not ordinal) 
+D) categorical, ordinal 
+```
+
+```{r q3}
+str(D$weight)
+```
+
+#### Answer Q3:  numerical, continuous
+
+## Question 4
+
+```
+What type of variable is smoke100? 
+
+A) numerical, continuous 
+B) numerical, discrete FFF
+C) categorical (not ordinal) 
+D) categorical, ordinal   FFF
+```
+
+```{r q4}
+str(D$smoke100)
+unique(D$smoke100)
+```
+
+#### Answer Q4:  categorical, not ordinal ???
+
+## Question 5
+
+```{r q5-1}
+summary(cdc$weight)
+mean(cdc$weight) 
+var(cdc$weight)
+median(cdc$weight)
+table(cdc$smoke100)
+table(cdc$smoke100)/20000
+barplot(table(cdc$smoke100))
+smoke = table(cdc$smoke100)
+barplot(smoke)
+```
+
+```
+Create a numerical summary for gender. How many males are in the sample? 
+
+A) 4,657 
+B) 6,972 
+C) 9,569 
+D) 10,431 
+E) 20,000 
+```
+
+```{r q5}
+summary(cdc$gender)
+```
+
+#### Answer Q5:  9,569
+
+## Question 6
+
+```
+Compute the relative frequency distribution of genhlth. What proportion of the sample reports being in excellent health? Choose the closest answer. 
+
+A) 0.15 
+B) 0.23 
+C) 0.30 
+D) 0.51 
+```
+
+```{r q6}
+table(cdc$genhlth)/20000
+```
+
+#### Answer Q6:  B) 23%
+
+## Question 7
+
+```{r q7-1}
+gender_smokers = table(cdc$gender,cdc$smoke100)
+mosaicplot(gender_smokers)
+```
+
+```
+What does the mosaic plot reveal about smoking habits and gender? 
+
+A) The mosaic plot shows that males are more likely to smoke than females. 
+B) The mosaic plot shows that males are less likely to smoke than females. 
+C) The mosaic plot shows that males are just as likely to smoke than females. 
+```
+
+#### Answer Q7:  males more likely
+
+
+## Question 8
+
+```
+How many observations are in the subset under23_and_smoke that you created in the previous exercise, i.e. how many people in the sample are under the age of 23 and have smoked at least 100 cigarettes in their lifetime?
+
+A) 620
+B) 771
+C) 7,244
+D) 10,436
+E) 17,591
+```
+
+```{r q8}
+dim(D[age<23 & smoke100>0])
+```
+
+#### Answer Q8:  A) 620
+
+## Question 9
+
+```{r q9-1}
+boxplot(cdc$height ~ cdc$gender)
+bmi = (cdc$weight / cdc$height^2) * 703
+boxplot(bmi ~ cdc$genhlth)
+
+D <- D[, bmi := (weight / height^2) * 703]
+tapply(bmi, cdc$genhlth, FUN=mean)
+
+```
+
+```
+Which of the following is FALSE based on the box plot of BMI vs. general health?
+
+A) The median BMI is roughly 25 for all general health categories, and there is a slight increase in median BMI as general health status declines (from excellent to poor). 
+B) The IQR increases slightly as general health status declines (from excellent to poor). 
+C) Among people with excellent health, there are some with unusually low BMIs compared to the rest of the group. 
+D) The distributions of BMIs within each health status group is left skewed.
+```
+
+#### Answer Q9:  D) False: left skewed
+
+## Question 10
+
+```
+Based on the plot you made in the previous exercise, which of the following is true about the relationship between weight and desired weight? 
+
+A) moderately weak negative linear 
+B) moderately weak positive linear 
+C) moderately strong positive linear 
+D) moderately weak negative linear ```
+
+```{r q10}
+plot(D$weight ~ D$wtdesire)
+```
+
+#### Answer Q10:  C) strong positive linear
+

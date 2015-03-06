@@ -1,0 +1,361 @@
+# DASI-003 Unit 1 Quiz 1
+Ronald Stalder  
+`r Sys.Date()`  
+
+<style type="text/css">
+table {
+  width: 90%;
+  border: 1px solid black;
+}
+table tr:first-child,
+table tr td:first-child {
+  color: #000080;
+  background-color: #BCD2EE;
+  border-bottom: 1px solid black;
+}
+table tr td {
+  padding-left: 5px;
+  border-right: 1px solid black;
+}
+</style>
+
+##### Data Analysis and Statistical Inference 
+##### Unit 1 Quiz - Introduction to Data
+
+## Question 1
+
+```
+Consider the table below describing a data set of individuals who have registered to volunteer at a public school. Which of the choices below lists categorical variables?
+
+
+phone number and name
+name and number of siblings
+number of siblings and year born
+annual income and phone number
+```
+
+#### u1_slides p. 8
+
+#### Answer Q1:  phone number and name
+
+## Question 2
+
+```
+The General Social Survey conducted annually in the United States asks how many friends people have and how they would rate their happiness level (very happy, pretty happy, not too happy). In order to evaluate the relationship between these two variables a researcher calculates the average number of friends for people who categorize themselves as very happy, pretty happy, and not too happy. Which of the following correctly identifies the variables used in the study as explanatory and response?
+
+explanatory:very happy, pretty happy, not too happy
+response: number of friends
+
+explanatory:number of friends 
+response: happiness level (categorical with 3 levels)
+
+explanatory:happiness level (categorical with 3 levels)
+response: number of friends
+
+explanatory:number of friends 
+response: very happy, pretty happy, not too happy
+```
+
+#### OpenIntro Statistics chap. 1.3.2
+
+To identify the explanatory variable in a pair of variables, identify which of the two
+is suspected of affecting the other and plan an appropriate analysis.
+
+
+#### Answer Q2:  
+
+explanatory:happiness level (categorical with 3 levels)  
+response: number of friends
+
+
+## Question 3
+
+```
+In a study published in 2011 in The Proceedings of the National Academy of Sciences, researchers randomly assigned 120 elderly men and women who volunteered to be a part of this study (average age mid-60s) to one of two exercise groups. One group walked around a track three times a week; the other did a variety of less aerobic exercises, including yoga and resistance training with bands. After a year, brain scans showed that among the walkers, the hippocampus (part of the brain responsible for forming memories) had increased in volume by about 2% on average; in the others, it had declined by about 1.4%. Which of the following is false?
+
+- The results of this study can be generalized to all elderly.
+
+- A causal link between walking and expansion of the hippocampus can be inferred based on these results.
+
+- The explanatory variable is the type of exercise, and the response variable is the change in volume of the hippocampus.
+```
+
+#### u1_slides p. 45
+
+|----|----|----|  
+|Sampling:|Assignment: Random|Assignment: Not Random|  
+|Random|causal and generalizable|not causal but generalizable|  
+|Not Random|causal but not generalizable|not causal, not generalizable|  
+
+$\;$  
+**here:**  
+Sampling: not random (volunteer)  
+Assignment: random  
+
+#### Answer Q3:  False: The results of this study can be generalized to all elderly
+
+
+
+
+## Question 4
+
+```
+An extraneous variable that is related to the explanatory and response variables 
+and that prevents us from deducing causal relationships based on observational studies 
+is called a ___________________
+```
+
+#### u1_slides p. 24
+
+#### Answer Q4: confounding variable  
+
+
+
+## Question 5
+
+```
+For your political science class, you’d like to take a survey from a sample of all the Catholic Church members in your town. Your town is divided into 17 neighborhoods, each with similar socio-economic status distribution and ethnic diversity, and each contains a Catholic Church. Rather than trying to obtain a list of all members of all these churches, you decide to pick 3 churches at random. For these churches, you’ll ask to get a list of all current members and contact 100 members at random. What kind of design have you used?
+
+systematic sampling
+stratified sampling
+cluster sampling
+quota sampling
+simple random sampling
+```
+
+#### u1_slides p. 32 - 35
+
+#### Answer Q5:  cluster sampling
+
+
+## Question 6
+
+```
+Which of the following is one of the four principles of experimental design?
+
+cluster
+randomize
+non-response
+stratify
+```
+
+#### u1_slides p. 37
+
+#### Answer Q6:  randomize
+
+
+## Question 7
+
+```
+Which of the below data sets has the highest standard deviation? You do not need to calculate the exact standard deviations to answer this question.
+
+0, 25, 25, 25, 25, 25, 25
+0,1,1,1,1,1,2
+0, 100, 200, 300, 400, 500, 600
+0,1,2,3,4,5,6
+```
+
+obvious: 0, 100, 200, 300, 400, 500, 600
+
+
+```r
+sd(c(0, 25, 25, 25, 25, 25, 25))
+sd(c(0,1,1,1,1,1,2))
+sd(c(0, 100, 200, 300, 400, 500, 600))
+sd(c(0,1,2,3,4,5,6))
+```
+
+```
+## [1] 9.449112
+## [1] 0.5773503
+## [1] 216.0247
+## [1] 2.160247
+```
+
+#### Answer Q7: 0, 100, 200, 300, 400, 500, 600  
+
+
+## Question 8
+
+```
+The distribution of exam scores (ranging from 0 - 100%) where the mean score is 75%, the standard deviation is 12%, and the median is 78% is most likely
+
+- left skewed
+- uniform
+- right skewed
+- symmetric
+```
+
+#### u1_slides p. 59
+
+median is much lower than mean *** WTF ?? *** median is higher  
+
+
+#### Answer Q8: right skewed  
+
+#### Answer Q8[2]: left skewed  
+
+## Question 9
+
+```
+Two distributions (A and B) are shown on the box plot below. Which of the following statements is not supported by the plot?
+
+
+B is more variable than A.
+Median of A is higher than median of B.
+Both distributions are unimodal.
+Both distributions are roughly symmetric.
+```
+
+#### u1_slides p. 63
+
+#### Answer Q9: Both distributions are unimodal  
+
+
+## Question 10
+
+```
+A recent housing survey was conducted to determine the price of a typical home in a city that is mostly middle-class, with one very expensive suburb. The mean price of a house in this city is roughly $650,000. Which of the following statements is most likely to be true?
+
+- Majority of houses in this city cost more than $650,000.
+- We need to know the standard deviation to answer this question
+- There are about as many houses in this city that cost more than $650,000 than less than this amount.
+- Majority of houses in this city cost less than $650,000.
+```
+
+#### u1_slides p. 59
+
+median is lower than mean because only 1 expensive suburb  
+
+#### Answer Q10: Majority of houses in this city cost less than $650,000  
+
+
+## Question 11
+
+```
+Phi Delta Kappa (PDK) is an international professional organization for educators that, in collaboration with Gallup, has been conducting polls on the public’s attitudes toward the public schools since 1969. The following was one of the questions on the 2011 poll:
+
+”Most teachers in the nation now belong to unions or associations that bargain over salaries, working conditions, and the like. Has unionization, in your opinion, helped, hurt, or made no difference in the quality of public school education in the United States?”
+
+The respondents’ answers broken down by party affiliation are shown below. Which of the following statements is most justified by these data?
+
+
+- The results of the survey suggest that opinion on teachers belonging to unions or bargaining associations and political party affiliation appear to be independent.
+
+- The results of the survey suggest a relationship between opinion on teachers belonging to unions or bargaining associations and political party affiliation.
+
+- 14% of Republicans and 58% of Democrats think that teachers belonging to unions or bargaining associations helped the quality of public school education in the United States.
+
+- A histogram or a box plot would be useful for investigating if distribution of opinion on teachers belonging to unions or bargaining associations varies by political party affiliation.
+```
+
+#### u1_slides p. 59
+
+
+```r
+library(data.table)
+X <- data.table(
+    ans=as.factor(c("helped", "hurt", "noDiff", "noAns")),
+    rep=c(35,187,52,6),
+    dem=c(146,78,105,12),
+    indep=c(69,178,90,22)
+    )
+X <- X[,Total:=rep+dem+indep]
+X <- rbind(X, list("Total",sum(X[,rep]),sum(X[,dem]),sum(X[,indep]),sum(X[,Total])))
+knitr::kable(X)
+
+Xvf <- copy(X)
+Xvf <- Xvf[, `:=`(rep=round(100*rep/X$rep[5]),dem=round(100*dem/X$dem[5]),
+              indep=round(100*indep/X$indep[5]),Total=round(100*Total/X$Total[5]))]
+knitr::kable(Xvf)
+
+
+Xhf <- copy(X)
+Xhf <- Xhf[, `:=`(rep=round(100*rep/Total),dem=round(100*dem/Total),
+              indep=round(100*indep/Total),Total=100)]
+knitr::kable(Xhf)
+```
+
+```
+## 
+## 
+## ans       rep   dem   indep   Total
+## -------  ----  ----  ------  ------
+## helped     35   146      69     250
+## hurt      187    78     178     443
+## noDiff     52   105      90     247
+## noAns       6    12      22      40
+## Total     280   341     359     980
+## 
+## 
+## 
+## ans       rep   dem   indep   Total
+## -------  ----  ----  ------  ------
+## helped     12    43      19      26
+## hurt       67    23      50      45
+## noDiff     19    31      25      25
+## noAns       2     4       6       4
+## Total     100   100     100     100
+## 
+## 
+## 
+## ans       rep   dem   indep   Total
+## -------  ----  ----  ------  ------
+## helped     14    58      28     100
+## hurt       42    18      40     100
+## noDiff     21    43      36     100
+## noAns      15    30      55     100
+## Total      29    35      37     100
+```
+
+##### comment answers (which is most justified):
+
+- The results of the survey suggest that opinion on teachers belonging to unions or bargaining associations and political party affiliation appear to be independent. $\;\Rightarrow\;$ **false**
+
+- The results of the survey suggest a relationship between opinion on teachers belonging to unions or bargaining associations and political party affiliation. $\;\Rightarrow\;$ **true**
+
+- 14% of Republicans and 58% of Democrats think that teachers belonging to unions or bargaining associations helped the quality of public school education in the United States. $\;\Rightarrow\;$ **no, its 12 and 43 %**
+
+- A histogram or a box plot would be useful for investigating if distribution of opinion on teachers belonging to unions or bargaining associations varies by political party affiliation.$\;\Rightarrow\;$ **yeah, yeah**
+
+
+
+#### Answer Q11: "14% of Republicans ..."
+
+#### Answer Q11[2]: "... suggest a relationship ..."
+
+
+
+## Question 12
+
+```
+Professors regularly give two versions of an exam. The professor may also provide summary
+statistics for each version. Suppose the following summary is provided:
+```
+
+```
+## 
+## 
+## version     nbEx   mean   median   sd
+## ---------  -----  -----  -------  ---
+## versionA      53   65.5       72   16
+## versionB      65   66.5       71   17
+```
+
+```
+A student who took Version A says that he should get an extra point because his exam was harder
+as evidenced by the lower mean score for Version A, as shown by the mean score. Does the student
+have a good argument? Pick the best answer below.
+```
+
+- We need to know the shape of the distribution for each version to determine if this argument is valid. $\;\Rightarrow\;$ **false**
+- Yes. The difference in the exam scores means that there is a difference in difficulty between the versions. $\;\Rightarrow\;$ **false**
+- Yes. Only 53 students took exam Version A while 65 students took exam Version B. $\;\Rightarrow\;$ **false**
+- No. The average scores are relatively close when considering the spread of the distributions. - The difference might just be due to just chance. $\;\Rightarrow\;$ **true, better answer**
+- No. The median of Version A is higher. $\;\Rightarrow\;$ **very true**
+
+
+#### Answer Q12: "No. The median..."  
+
+#### Answer Q12[2]: "... might just be due to just chance ..."  
+
