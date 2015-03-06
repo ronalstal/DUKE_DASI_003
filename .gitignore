@@ -1,0 +1,17 @@
+# R-Studio stuff
+.Rproj.user
+*.Rproj
+.Rhistory
+.RData
+
+# .Rmd output files
+*.html
+*.pdf
+*.md
+
+# data and generated image files
+*.zip
+data/*
+
+# files to be explicitly included
+!README.md
